@@ -1,21 +1,21 @@
 <template>
   <div class="comp-full-calendar">
     <!-- header pick month -->
-    <fc-header :current-month="currentMonth"
+    <calendar-header :current-month="currentMonth"
       :first-day="firstDay"
       :locale="locale"
       @change="emitChangeMonth">
 
       <div slot="header-left">
-        <slot name="fc-header-left">
+        <slot name="calendar-header-left">
         </slot>
       </div>
 
       <div slot="header-right">
-        <slot name="fc-header-right">
+        <slot name="calendar-header-right">
         </slot>
       </div>
-    </fc-header>
+    </calendar-header>
     <!-- body display date day and events -->
     <div class="full-calendar-body">
       <div class="weeks">
@@ -110,7 +110,7 @@
     },
     components : {
       'event-card': EventCard,
-      'fc-header' : Header,
+      'calendar-header' : Header,
     },
     mounted () {
       this.emitChangeMonth(this.currentMonth);

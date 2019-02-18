@@ -1,5 +1,5 @@
 <template>
-  <div class="full-calendar-header">
+  <div class="calendar-header">
     <div class="header-left">
       <slot name="header-left">
       </slot>
@@ -51,7 +51,7 @@
   }
 </script>
 <style lang="scss">
-.full-calendar-header{
+.calendar-header{
   display: flex;
   align-items: center;
   .header-left,.header-right{
