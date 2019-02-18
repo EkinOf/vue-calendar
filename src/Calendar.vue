@@ -30,7 +30,7 @@
   </div>
 </template>
 <script type="text/babel">
-  import langSets from './dataMap/langSets.js'
+  import langSets from './helpers/langSets.js'
   import calendarBody from './components/Body.vue'
   import calendarHeader from './components/Header.vue'
 

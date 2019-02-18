@@ -16,7 +16,7 @@
   </div>
 </template>
 <script type="text/babel">
-  import dateFunc from './dateFunc.js'
+  import dateFunc from '../helpers/dateFunc.js'
 
   export default {
     created () {
