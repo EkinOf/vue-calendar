@@ -107,7 +107,8 @@
           top: 0,
           left : 0
         },
-        selectDay : {}
+        selectDay : {},
+        langSets: langSets
       }
     },
     watch : {
