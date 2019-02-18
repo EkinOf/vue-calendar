@@ -7,7 +7,9 @@ module.exports = {
   entry: path.resolve(__dirname + '/src/index.js'),
   output: {
     path: path.resolve(__dirname + '/dist/'),
-    filename: 'vue-calendar.js'
+    filename: 'vue-calendar.min.js',
+    library: 'Calendar',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [

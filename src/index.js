@@ -1,5 +1,5 @@
-import vueCalendar from './Calendar.vue';
+import Calendar from './Calendar.vue';
 
-const calendar = vueCalendar;
+export default Calendar;
 
-export default calendar;
+export { Calendar };
