@@ -135,11 +135,25 @@
       }
     },
     methods : {
+      getMonthViewStartDate (date, firstDay) {
+        firstDay = parseInt(firstDay);
+        let start = moment(date);
+        let startOfMonth = moment(start.startOf('month'));
+        start.subtract(startOfMonth.day(), 'days');
+        if (startOfMonth.day() < firstDay) {
+          start.subtract(7, 'days');
+        }
+        start.add(firstDay, 'days');
+        return start;
+      },
+      getMonthViewEndDate () {
+        return this.getMonthViewStartDate().add(6, 'weeks');
+      },
       emitChangeMonth (firstDayOfMonth) {
         this.currentMonth = firstDayOfMonth;
 
-        let start = moment(firstDayOfMonth.startOf('month'));
-        let end = moment(firstDayOfMonth.endOf('month'));;
+        let start = this.getMonthViewStartDate(firstDayOfMonth, this.firstDay);
+        let end = this.getMonthViewEndDate();
 
         this.$emit('changeMonth', start, end, firstDayOfMonth)
       },
@@ -149,7 +163,7 @@
       },
       getCalendar () {
         // calculate 2d-array of each month
-        let monthViewStartDate = this.currentMonth;
+        let monthViewStartDate = this.getMonthViewStartDate(this.currentMonth, this.firstDay);
         let calendar = [];
 
         for(let perWeek = 0 ; perWeek < 6 ; perWeek++) {
