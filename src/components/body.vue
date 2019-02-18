@@ -107,7 +107,7 @@
     },
     watch : {
       weekNames (val) {
-        console.log('watch weekNames', val)
+        // console.log('watch weekNames', val)
       }
     },
     computed : {
@@ -208,8 +208,8 @@
           thisDayEvents.splice(i,0,{
             title : 'holder',
             cellIndex : i+1,
-            start : dateFunc.format(date,'yyyy-MM-dd'),
-            end : dateFunc.format(date,'yyyy-MM-dd'),
+            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
             isShow : false
           })
         }

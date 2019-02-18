@@ -40,7 +40,7 @@
       currentDate (val) {
         if (!val) return
         this.headDate = val
-        console.log('currentDate', val)
+        // console.log('currentDate', val)
         // this.headDate = JSON.parse(JSON.stringify(val))
       }
     },
@@ -75,9 +75,9 @@
         let currentDate = dateFunc.getStartDate(this.headDate)
 
         this.$emit('change', 
-          dateFunc.format(startDate, 'yyyy-MM-dd'),
-          dateFunc.format(endDate, 'yyyy-MM-dd'),
-          dateFunc.format(currentDate,'yyyy-MM-dd'),
+          dateFunc.format(startDate, 'yyyy-MM-dd', this.monthNames),
+          dateFunc.format(endDate, 'yyyy-MM-dd', this.monthNames),
+          dateFunc.format(currentDate,'yyyy-MM-dd', this.monthNames),
           this.headDate
         )
       }

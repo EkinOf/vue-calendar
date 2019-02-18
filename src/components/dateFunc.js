@@ -1,32 +1,3 @@
-var shortMonth = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-]
-var defMonthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-]
-
 let dateFunc = {
   getDuration (date) {
     // how many days of this month
@@ -68,7 +39,7 @@ let dateFunc = {
     }
 
     format = format.replace(/([yMdhmsqS])+/g, (all, t) => {
-            console.log('all', all, t, format)
+            // console.log('all', all, t, format)
             var v = map[t]
             if (v !== undefined) {
                 if (all === 'MMMM') {
@@ -87,7 +58,7 @@ let dateFunc = {
             }
         return all
     })
-    console.log('format res', format)
+    // console.log('format res', format)
     return format
   }
 }
