@@ -1,5 +1,7 @@
 import Calendar from './Calendar.vue';
 
-export default Calendar;
-
-export { Calendar };
+module.exports = {
+  install: function (Vue, options) {
+    Vue.component('vue-calendar', Calendar);
+  }
+};

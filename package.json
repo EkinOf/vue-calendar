@@ -1,28 +1,25 @@
 {
   "name": "vue-calendar",
   "version": "0.0.1",
-  "description": "",
+  "description": "Calendar display with vue",
   "main": "dist/vue-calendar.js",
-  "unpkg": "dist/vue-calendar.min.js",
   "scripts": {
-    "test": "webpack",
-    "dev": "webpack --config ./webpack.config.js --mode=development",
-    "build": "webpack --progress --hide-modules --config webpack.build.js && webpack --progress --hide-modules --config webpack.build.min.js -p"
+    "build": "rimraf ./dist && webpack --config ./webpack.config.js"
   },
-  "author": "Ekinof",
+  "author": "EkinOf",
   "license": "MIT",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "vue": "^2.6.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekinof/vue-calendar.git"
-  },
-  "dependencies": {
-    "vue": "^2.6.6"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
-    "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "strip-loader": "^0.1.2",
@@ -31,6 +28,7 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.6",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.1"
   }
 }
