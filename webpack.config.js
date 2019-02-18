@@ -9,9 +9,6 @@ module.exports = {
     path: path.resolve(__dirname + '/dist/'),
     filename: 'vue-calendar.js'
   },
-  resolve: {
-    symlinks: false,
-  },
   module: {
     rules: [
       {

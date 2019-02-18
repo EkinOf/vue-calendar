@@ -2,4 +2,4 @@ import vueCalendar from './Calendar.vue';
 
 const calendar = vueCalendar;
 
-module.exports = calendar;
+export default calendar;
