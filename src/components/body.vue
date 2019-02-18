@@ -36,7 +36,7 @@
               </p>
               <p v-if="day.events.length > eventLimit"
                 class="more-link" @click.stop="selectThisDay(day, $event)">
-                + {{day.events[day.events.length -1].cellIndex - eventLimit}} more
+                + {{day.events[day.events.length -1].cellIndex - eventLimit}} {{ langSets[this.lang].words.more }}
               </p>
             </div>
           </div>
@@ -71,9 +71,14 @@
 </template>
 <script type="text/babel">
   import dateFunc from '../helpers/dateFunc.js'
+  import langSets from '../helpers/langSets.js'
 
   export default {
     props : {
+      lang: {
+        type: String,
+        default: 'en'
+      },
       currentDate : {},
       events      : {},
       weekNames   : {
@@ -126,7 +131,7 @@
       },
       moreTitle (date) {
         let dt = new Date(date)
-        return this.weekNames[dt.getDay()] + ', ' + this.monthNames[dt.getMonth()] + dt.getDate()
+        return this.weekNames[dt.getDay()] + ', ' + this.monthNames[dt.getMonth()] +' '+ dt.getDate()
       },
       classNames (cssClass) {
         if(!cssClass) return ''
