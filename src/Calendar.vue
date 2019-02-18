@@ -90,6 +90,7 @@
   import Header from './components/header.vue';
 
   export default {
+    name: 'vue-calendar',
     props : {
       events : { // events will be displayed on calendar
         type : Array,
