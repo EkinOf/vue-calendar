@@ -1,36 +1,38 @@
 <template>
   <div class="comp-full-calendar">
     <!-- header pick month -->
-    <fc-header :current-date="currentDate" 
+    <calendar-header :current-date="currentDate" 
       :title-format="titleFormat"
       :first-day="firstDay"
       :month-names="monthNames"
       @change="emitChangeMonth">
 
       <div slot="header-left">
-        <slot name="fc-header-left">
+        <slot name="calendar-header-left">
         </slot>
       </div>
 
       <div slot="header-right">
-        <slot name="fc-header-right">
+        <slot name="calendar-header-right">
         </slot>
       </div>
-    </fc-header>
+    </calendar-header>
     <!-- body display date day and events -->
-    <fc-body :current-date="currentDate" :events="events" :month-names="monthNames" 
+    <calendar-body :current-date="currentDate" :events="events" :month-names="monthNames" 
       :week-names="weekNames" :first-day="firstDay"
       @eventclick="emitEventClick" @dayclick="emitDayClick"
       @moreclick="emitMoreClick">
       <div slot="body-card">
-        <slot name="fc-body-card">
+        <slot name="calendar-body-card">
         </slot>
       </div>
-    </fc-body>
+    </calendar-body>
   </div>
 </template>
 <script type="text/babel">
   import langSets from './dataMap/langSets.js'
+  import calendarBody from './components/Body.vue'
+  import calendarHeader from './components/Header.vue'
 
   export default {
     name: 'vue-calendar',
@@ -94,8 +96,8 @@
       }
     },
     components : {
-      'fc-body'   : require('./components/body.vue'),
-      'fc-header' : require('./components/header.vue')
+      'calendar-body'   : calendarBody,
+      'calendar-header' : calendarHeader
     }
   }
   
