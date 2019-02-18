@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ekinof/vue-fullcalendar.git"
+    "url": "git+https://github.com/ekinof/vue-calendar.git"
   },
   "dependencies": {
     "vue": "^2.6.6"
