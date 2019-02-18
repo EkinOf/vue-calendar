@@ -149,7 +149,7 @@
       },
       getCalendar () {
         // calculate 2d-array of each month
-        let monthViewStartDate = moment(firstDayOfMonth.startOf('month'));
+        let monthViewStartDate = this.currentMonth();
         let calendar = [];
 
         for(let perWeek = 0 ; perWeek < 6 ; perWeek++) {
