@@ -36,7 +36,7 @@
               </p>
               <p v-if="day.events.length > eventLimit"
                 class="more-link" @click.stop="selectThisDay(day, $event)">
-                + {{day.events[day.events.length -1].cellIndex - eventLimit}} {{ langSets[this.lang].words.more }}
+                + {{day.events[day.events.length -1].cellIndex - eventLimit}} {{ langSets[lang].words.more }}
               </p>
             </div>
           </div>
