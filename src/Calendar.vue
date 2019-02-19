@@ -18,7 +18,7 @@
       </div>
     </calendar-header>
     <!-- body display date day and events -->
-    <calendar-body :current-date="currentDate" :events="events" :month-names="monthNames" 
+    <calendar-body :lang="lang" :current-date="currentDate" :events="events" :month-names="monthNames" 
       :week-names="weekNames" :first-day="firstDay"
       @eventclick="emitEventClick" @dayclick="emitDayClick"
       @moreclick="emitMoreClick">
