@@ -319,7 +319,6 @@
           text-overflow: ellipsis;
           .day-number{
             text-align: right;
-            padding:4px 5px 4px 4px;
             opacity: 0;
           }
           &.not-cur-month{
