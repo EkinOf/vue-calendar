@@ -27,7 +27,7 @@
               <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex <= eventLimit"
                 :key="subSubKey"
                 :class="[classNames(event.cssClass), {
-                  'is-start'   : isStart(event.start,day.date),
+                  'is-start'   : isStart(event.start, day.date),
                   'is-end'     : isEnd(event.end,day.date),
                   'is-opacity' : !event.isShow
                 }]" 
@@ -36,7 +36,7 @@
               </p>
               <p v-if="day.events.length > eventLimit"
                 class="more-link" @click.stop="selectThisDay(day, $event)">
-                + {{day.events.length - eventLimit}} {{ langSets[lang].words.more }}
+                + {{day.events[day.events.length -1].cellIndex - eventLimit}} {{ langSets[lang].words.more }}
               </p>
             </div>
           </div>
@@ -207,90 +207,19 @@
           return a.cellIndex - b.cellIndex
         })
 
-        console.log(thisDayEvents)
-
-        let firstPlaceTaken = false
-        let secondPlaceTaken = false
-        let thirdPlaceTaken = false
-        let allPlaceTaken = false
         // mark cellIndex and place holder
         for (let i = 0;i<thisDayEvents.length;i++) {
+          thisDayEvents[i].cellIndex = thisDayEvents[i].cellIndex || (i + 1)
           thisDayEvents[i].isShow = true
-          if (thisDayEvents[i].cellIndex==1) {
-            if (firstPlaceTaken) {
-              thisDayEvents[i].cellIndex = undefined
-            } else {
-              firstPlaceTaken = true
-            }
-          } else if (thisDayEvents[i].cellIndex==2) {
-            if (secondPlaceTaken) {
-              thisDayEvents[i].cellIndex = undefined
-            } else {
-              secondPlaceTaken = true
-            }
-          } else if (thisDayEvents[i].cellIndex==3) {
-            if (thirdPlaceTaken) {
-              thisDayEvents[i].cellIndex = undefined
-            } else {
-              thirdPlaceTaken = true
-            }
-          }
-          
-          if(thisDayEvents[i].cellIndex==undefined && !allPlaceTaken) {
-            if (!firstPlaceTaken) {
-              thisDayEvents[i].cellIndex = 1
-              firstPlaceTaken = true
-            } else {
-              if (!secondPlaceTaken) {
-                thisDayEvents[i].cellIndex = 2
-                secondPlaceTaken = true
-              } else {
-                if (!thirdPlaceTaken) {
-                  thisDayEvents[i].cellIndex = 3
-                  thirdPlaceTaken = true
-                } else {
-                  allPlaceTaken = true
-                }
-              }
-            }
-          }
-        }
-
-        if (!firstPlaceTaken) {
-          thisDayEvents.splice(0,0,{
+          if (thisDayEvents[i].cellIndex == i+1 || i>2) continue
+          thisDayEvents.splice(i,0,{
             title : 'holder',
-            cellIndex : 1,
+            cellIndex : i+1,
             start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
             end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
             isShow : false
           })
         }
-        if (!secondPlaceTaken) {
-          thisDayEvents.splice(1,0,{
-            title : 'holder',
-            cellIndex : 2,
-            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            isShow : false
-          })
-        }
-        if (!thirdPlaceTaken) {
-          thisDayEvents.splice(2,0,{
-            title : 'holder',
-            cellIndex : 3,
-            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            isShow : false
-          })
-        }
-
-        thisDayEvents.sort((a,b)=>{
-          if (a.cellIndex < b.cellIndex)
-            return -1;
-          if (a.cellIndex > b.cellIndex)
-            return 1;
-          return 0;
-        })
 
         return thisDayEvents
       },
