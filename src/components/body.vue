@@ -246,6 +246,34 @@
           }
         }
 
+        if (!firstPlace) {
+          thisDayEvents.splice(0,0,{
+            title : 'holder',
+            cellIndex : 1,
+            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            isShow : false
+          })
+        }
+        if (!secondPlaceTaken) {
+          thisDayEvents.splice(1,0,{
+            title : 'holder',
+            cellIndex : 2,
+            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            isShow : false
+          })
+        }
+        if (!thirdPlaceTaken) {
+          thisDayEvents.splice(2,0,{
+            title : 'holder',
+            cellIndex : 3,
+            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+            isShow : false
+          })
+        }
+
         return thisDayEvents
       },
       isStart (eventDate, date) {
