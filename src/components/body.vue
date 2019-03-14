@@ -219,6 +219,8 @@
               end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
               isShow : false
             })
+          } else {
+            continue
           }
         }
 
