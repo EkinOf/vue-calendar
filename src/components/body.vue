@@ -27,7 +27,7 @@
               <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex <= eventLimit"
                 :key="subSubKey"
                 :class="[classNames(event.cssClass), {
-                  'is-start'   : isStart(event.start, day.date),
+                  'is-start'   : isStart(event.start,day.date),
                   'is-end'     : isEnd(event.end,day.date),
                   'is-opacity' : !event.isShow
                 }]" 
@@ -212,7 +212,16 @@
           // Take same cellindex than day before or take the next one
           thisDayEvents[i].cellIndex = thisDayEvents[i].cellIndex || (i + 1)
           thisDayEvents[i].isShow = true
-          if (thisDayEvents[i].cellIndex == i+1 || i>3) continue
+          if (thisDayEvents[i].cellIndex == i+1) {
+            if (i<=3) {
+              continue
+            } else {
+              if (thisDayEvents[i-1].cellIndex < 3) {
+                thisDayEvents[i].cellIndex = thisDayEvents[i-1].cellIndex + 1
+                continue
+              }
+            }
+          }
           thisDayEvents.splice(i,0,{
             title : 'holder',
             cellIndex : i+1,
