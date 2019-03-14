@@ -221,7 +221,7 @@
             thirdPlaceTaken = true
           }
           
-          if(thisDayEvents[i].cellIndex==undefined) {
+          if(thisDayEvents[i].cellIndex==undefined && !allPlaceTaken) {
             if (!firstPlaceTaken) {
               thisDayEvents[i].cellIndex = 1
               firstPlaceTaken = true
