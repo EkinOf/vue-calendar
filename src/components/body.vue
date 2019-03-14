@@ -211,14 +211,15 @@
         for (let i = 0;i<thisDayEvents.length;i++) {
           thisDayEvents[i].cellIndex = thisDayEvents[i].cellIndex || (i + 1)
           thisDayEvents[i].isShow = true
-          if (thisDayEvents[i].cellIndex == i+1 || i>3) continue
-          thisDayEvents.splice(i,0,{
-            title : 'holder',
-            cellIndex : i+1,
-            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            isShow : false
-          })
+          if (i>3) {
+            thisDayEvents.splice(i,0,{
+              title : 'holder',
+              cellIndex : i+1,
+              start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+              end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
+              isShow : false
+            })
+          }
         }
 
         return thisDayEvents
