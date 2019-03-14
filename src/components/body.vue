@@ -207,30 +207,42 @@
           return a.cellIndex - b.cellIndex
         })
 
+        let firstPlaceTaken = false
+        let secondPlaceTaken = false
+        let thirdPlaceTaken = false
+        let allPlaceTaken = false
         // mark cellIndex and place holder
         for (let i = 0;i<thisDayEvents.length;i++) {
           // Take same cellindex than day before or take the next one
           thisDayEvents[i].cellIndex = thisDayEvents[i].cellIndex || (i + 1)
           thisDayEvents[i].isShow = true
+
+          if (thisDayEvents[i].cellIndex==1) {
+            firstPlaceTaken = true
+          } else if (thisDayEvents[i].cellIndex==2) {
+            secondPlaceTaken = true
+          } else if (thisDayEvents[i].cellIndex==3) {
+            thirdPlaceTaken = true
+          }
+          
           if (thisDayEvents[i].cellIndex == i+1) {
-            if (i<=3) {
-              continue
+            if (!firstPlaceTaken) {
+              thisDayEvents[i].cellIndex = 1
+              firstPlaceTaken = true
             } else {
-              if (thisDayEvents[i-1].cellIndex < 3) {
-                thisDayEvents[i].cellIndex = thisDayEvents[i-1].cellIndex + 1
-                continue
+              if (!secondPlaceTaken) {
+                thisDayEvents[i].cellIndex = 2
+                secondPlaceTaken = true
+              } else {
+                if (!thirdPlaceTaken) {
+                  thisDayEvents[i].cellIndex = 3
+                  thirdPlaceTaken = true
+                } else {
+                  allPlaceTaken = true
+                }
               }
             }
-          } else if (i>3) {
-            continue
           }
-          thisDayEvents.splice(i,0,{
-            title : 'holder',
-            cellIndex : i+1,
-            start : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            end : dateFunc.format(date,'yyyy-MM-dd', this.monthNames),
-            isShow : false
-          })
         }
 
         return thisDayEvents
