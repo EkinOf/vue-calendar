@@ -24,7 +24,7 @@
               'not-cur-month' : !day.isCurMonth}" @click.stop="dayClick(day.date, $event)">
             <p class="day-number">{{day.monthDay}}</p>
             <div class="event-box">
-              <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex!=undefined && event.cellIndex <= eventLimit"
+              <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex <= eventLimit"
                 :key="subSubKey"
                 :class="[classNames(event.cssClass), {
                   'is-start'   : isStart(event.start,day.date),
@@ -217,11 +217,23 @@
         for (let i = 0;i<thisDayEvents.length;i++) {
           thisDayEvents[i].isShow = true
           if (thisDayEvents[i].cellIndex==1) {
-            firstPlaceTaken = true
+            if (firstPlaceTaken) {
+              thisDayEvents[i].cellIndex = undefined
+            } else {
+              firstPlaceTaken = true
+            }
           } else if (thisDayEvents[i].cellIndex==2) {
-            secondPlaceTaken = true
+            if (secondPlaceTaken) {
+              thisDayEvents[i].cellIndex = undefined
+            } else {
+              secondPlaceTaken = true
+            }
           } else if (thisDayEvents[i].cellIndex==3) {
-            thirdPlaceTaken = true
+            if (thirdPlaceTaken) {
+              thisDayEvents[i].cellIndex = undefined
+            } else {
+              thirdPlaceTaken = true
+            }
           }
           
           if(thisDayEvents[i].cellIndex==undefined && !allPlaceTaken) {
