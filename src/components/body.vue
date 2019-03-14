@@ -207,8 +207,6 @@
           return a.cellIndex - b.cellIndex
         })
 
-        console.log(thisDayEvents)
-
         let firstPlaceTaken = false
         let secondPlaceTaken = false
         let thirdPlaceTaken = false
@@ -273,6 +271,14 @@
             isShow : false
           })
         }
+
+        thisDayEvents.sort((a,b)=>{
+          if (a.cellIndex < b.cellIndex)
+            return -1;
+          if (a.cellIndex > b.cellIndex)
+            return 1;
+          return 0;
+        })
 
         return thisDayEvents
       },
