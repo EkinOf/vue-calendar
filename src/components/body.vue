@@ -221,6 +221,8 @@
                 continue
               }
             }
+          } else if (i>3) {
+            continue
           }
           thisDayEvents.splice(i,0,{
             title : 'holder',
