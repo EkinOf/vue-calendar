@@ -246,7 +246,7 @@
           }
         }
 
-        if (!firstPlace) {
+        if (!firstPlaceTaken) {
           thisDayEvents.splice(0,0,{
             title : 'holder',
             cellIndex : 1,
