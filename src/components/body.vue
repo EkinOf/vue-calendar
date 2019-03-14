@@ -209,9 +209,10 @@
 
         // mark cellIndex and place holder
         for (let i = 0;i<thisDayEvents.length;i++) {
+          // Take same cellindex than day before or take the next one
           thisDayEvents[i].cellIndex = thisDayEvents[i].cellIndex || (i + 1)
           thisDayEvents[i].isShow = true
-          if (thisDayEvents[i].cellIndex == i+1 || i>2) continue
+          if (thisDayEvents[i].cellIndex == i+1 || i>3) continue
           thisDayEvents.splice(i,0,{
             title : 'holder',
             cellIndex : i+1,
