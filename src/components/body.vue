@@ -207,6 +207,8 @@
           return a.cellIndex - b.cellIndex
         })
 
+        console.log(thisDayEvents)
+
         let firstPlaceTaken = false
         let secondPlaceTaken = false
         let thirdPlaceTaken = false
