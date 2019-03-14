@@ -215,6 +215,7 @@
         let allPlaceTaken = false
         // mark cellIndex and place holder
         for (let i = 0;i<thisDayEvents.length;i++) {
+          thisDayEvents[i].isShow = true
           if (thisDayEvents[i].cellIndex==1) {
             firstPlaceTaken = true
           } else if (thisDayEvents[i].cellIndex==2) {
@@ -240,9 +241,6 @@
                 }
               }
             }
-          }
-          if (thisDayEvents[i].cellIndex<4) {
-            thisDayEvents[i].isShow = true
           }
         }
 
