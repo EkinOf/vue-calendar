@@ -24,7 +24,7 @@
               'not-cur-month' : !day.isCurMonth}" @click.stop="dayClick(day.date, $event)">
             <p class="day-number">{{day.monthDay}}</p>
             <div class="event-box">
-              <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex <= eventLimit"
+              <p class="event-item" v-for="(event, subSubKey) in day.events" v-show="event.cellIndex <= eventLimit || subSubKey <= eventLimit"
                 :key="subSubKey"
                 :class="[classNames(event.cssClass), {
                   'is-start'   : isStart(event.start, day.date),
