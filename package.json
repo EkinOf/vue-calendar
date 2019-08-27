@@ -4,31 +4,32 @@
   "description": "Calendar display with vue",
   "main": "dist/vue-calendar.js",
   "scripts": {
-    "build": "rimraf ./dist && webpack --config ./webpack.config.js"
+    "build": "rimraf ./dist && webpack --config ./webpack.config.js --mode production"
   },
   "author": "EkinOf",
   "license": "MIT",
   "dependencies": {
     "moment": "^2.24.0",
-    "vue": "^2.6.6"
+    "vue": "^2.6.10"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ekinof/vue-calendar.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "babel-loader": "^8.0.5",
-    "css-loader": "^2.1.0",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
+    "@babel/core": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
     "strip-loader": "^0.1.2",
-    "terser-webpack-plugin": "^1.2.2",
-    "vue-loader": "^15.6.2",
+    "tar": "^4.4.10",
+    "terser-webpack-plugin": "^1.4.1",
+    "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.6",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
     "webpack-merge": "^4.2.1"
   }
 }
